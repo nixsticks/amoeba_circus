@@ -1,0 +1,2 @@
+class AmoebasController < ApplicationController
+end
