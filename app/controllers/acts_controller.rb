@@ -40,6 +40,6 @@ class ActsController < ApplicationController
 
   private
     def act_params
-      params.require(:act).permit(:name, :time, :date)
+      params.require(:act).permit(:name, :time, :date, :amoeba_ids => [])
     end
 end
