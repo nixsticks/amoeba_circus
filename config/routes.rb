@@ -1,10 +1,9 @@
 AmoebaCircus::Application.routes.draw do
   root 'pages#index'
-  resources :amoebas, :only => [:edit, :create, :destroy, :show, :index]
+  resources :amoebas, :only => [:edit, :update, :destroy, :show, :index]
   resources :acts
 
-  get '/amoebas/:id/split' => 'amoebas#split'
-  post '/amoebas/:id' => 'amoebas#generate'
+  post '/amoebas/:id/split' => 'amoebas#split'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

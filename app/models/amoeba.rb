@@ -8,14 +8,18 @@ class Amoeba < ActiveRecord::Base
   validates :name, presence: true
 
   def mitosis
-    first_child = Amoeba.create(name: NAMES.sample, generation: self.generation + 1, talent_id: self.talent_id)
+    first_child = Amoeba.create(name: names.sample, generation: self.generation + 1, talent_id: self.talent_id)
 
-    second_child = Amoeba.create(name: NAMES.sample, generation: self.generation + 1, talent_id: self.talent_id)
+    second_child = Amoeba.create(name: names.sample, generation: self.generation + 1, talent_id: self.talent_id)
 
     self.acts.each do |act|
       act.amoebas << first_child << second_child
     end
 
     self.destroy
+  end
+
+  def names
+    NAMES.drop_while {|name| name == self.name}
   end
 end

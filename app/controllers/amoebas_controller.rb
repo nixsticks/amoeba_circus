@@ -12,10 +12,6 @@ class AmoebasController < ApplicationController
   end
 
   def split
-    @amoeba = Amoeba.find(params[:id])
-  end
-
-  def generate
     Amoeba.find(params[:id]).mitosis
 
     redirect_to amoebas_path
