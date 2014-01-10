@@ -1,8 +1,5 @@
 %h1= @amoeba.name
-- unless Talent.find(@amoeba.talent_id).name == "freak"
-  %p #{@amoeba.name} is a talented #{Talent.find_by_id(@amoeba.talent_id).name}.
-- else
-  %p #{@amoeba.name} was born a #{Talent.find_by_id(@amoeba.talent_id).name}, but everyone has to be good for something...
+%p #{@amoeba.name} is a talented #{@amoeba.generation_number}-generation #{Talent.find_by_id(@amoeba.talent_id).name}.
 - if @amoeba.acts.any?
   %p #{@amoeba.name} performs in the following acts:
   %ul

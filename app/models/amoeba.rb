@@ -22,4 +22,17 @@ class Amoeba < ActiveRecord::Base
   def names
     NAMES.drop_while {|name| name == self.name}
   end
+
+  def generation_number
+    generation = self.generation.to_s
+    if /1$/.match(generation)
+      generation + "st"
+    elsif /2$/.match(generation)
+      generation + "nd"
+    elsif /3$/.match(generation)
+      generation + "rd"
+    else
+      generation + "th"
+    end
+  end
 end
