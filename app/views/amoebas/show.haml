@@ -1,10 +1,14 @@
 %h1= @amoeba.name
-%p #{@amoeba.name} is a talented #{Talent.find_by_id(@amoeba.talent_id).name}.
+- unless @amoeba.talent_id == 20
+  %p #{@amoeba.name} is a talented #{Talent.find_by_id(@amoeba.talent_id).name}.
+- else
+  %p #{@amoeba.name} was born a #{Talent.find_by_id(@amoeba.talent_id).name}, but everyone has to be good for something...
 - if @amoeba.acts.any?
   %p #{@amoeba.name} performs in the following acts:
   %ul
     - @amoeba.acts.each do |act|
-      %li= act.name
-%p= link_to 'Split Amoeba', "/amoebas/#{@amoeba.id}/split", method: :post
+      %li= link_to act.name, act
+%p= link_to 'Split Amoeba', "/amoebas/#{@amoeba.id}/split", method: :post, confirm: "Are you sure?"
 %p= link_to 'Edit Amoeba', edit_amoeba_path
 %p= link_to 'Fire Amoeba From Circus', amoeba_path, method: :delete, confirm: "Are you sure?"
+%p= link_to 'Back to Circus', root_path
