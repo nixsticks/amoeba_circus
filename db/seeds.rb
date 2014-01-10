@@ -21,6 +21,6 @@ File.open('./public/acts.txt').each do |line|
   acts << Act.create(name: line.chomp, date: Date.today, time: Time.now)
 end
 
-10.times do
-  ActAmoeba.create(act_id: acts.sample.id, amoeba_id: amoebas.sample.id)
+30.times do
+  AmoebaAct.create(act_id: acts.sample.id, amoeba_id: amoebas.sample.id)
 end
