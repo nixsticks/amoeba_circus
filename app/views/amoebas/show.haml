@@ -1,5 +1,5 @@
 %h1= @amoeba.name
-- unless @amoeba.talent_id == 20
+- unless Talent.find(@amoeba.talent_id).name == "freak"
   %p #{@amoeba.name} is a talented #{Talent.find_by_id(@amoeba.talent_id).name}.
 - else
   %p #{@amoeba.name} was born a #{Talent.find_by_id(@amoeba.talent_id).name}, but everyone has to be good for something...
