@@ -1,0 +1,15 @@
+= form_for @act do |f|
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :date
+    = f.date_select :date
+  .field
+    = f.label :time
+    = f.time_select :time, {:ampm => true}
+  .field
+    = f.label "Amoebas in this act:"
+    = f.collection_check_boxes(:amoeba_ids, Amoeba.all, :id, :name)
+
+  = f.submit 'Submit'

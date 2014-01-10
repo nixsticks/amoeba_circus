@@ -1,0 +1,12 @@
+= form_for @amoeba do |f|
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :talent
+    = f.collection_select :talent_id, Talent.all, :id, :name
+  .field
+    = f.label "Acts for this amoeba:"
+    = f.collection_check_boxes(:act_ids, Act.all, :id, :name)
+
+  = f.submit 'Submit'

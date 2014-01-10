@@ -1,0 +1,10 @@
+%h1= @amoeba.name
+%p #{@amoeba.name} is a talented #{Talent.find_by_id(@amoeba.talent_id).name}.
+- if @amoeba.acts.any?
+  %p #{@amoeba.name} performs in the following acts:
+  %ul
+    - @amoeba.acts.each do |act|
+      %li= act.name
+%p= link_to 'Split Amoeba', "/amoebas/#{@amoeba.id}/split"
+%p= link_to 'Edit Amoeba', edit_amoeba_path
+%p= link_to 'Fire Amoeba From Circus', amoeba_path, method: :delete, confirm: "Are you sure?"

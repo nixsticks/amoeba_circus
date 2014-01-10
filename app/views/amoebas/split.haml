@@ -1,0 +1,10 @@
+%h1 Split this amoeba?
+
+= form_tag amoeba_path, method: "post" do |f|
+  .field
+    = label_tag :first_child, "Name for first new amoeba:"
+    = text_field_tag :first_child
+  .field
+    = label_tag :second_child, "Name for second amoeba:"
+    = text_field_tag :second_child
+  = submit_tag "Split"

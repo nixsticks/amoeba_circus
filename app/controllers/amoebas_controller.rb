@@ -12,9 +12,11 @@ class AmoebasController < ApplicationController
   end
 
   def split
-    amoeba = Amoeba.find(params[:id])
-    2.times { |i| Amoeba.create(name: params[:name][i], talent: amoeba.talent_id) }
-    amoeba.delete
+    @amoeba = Amoeba.find(params[:id])
+  end
+
+  def generate
+    Amoeba.find(params[:id]).mitosis
 
     redirect_to amoebas_path
   end
@@ -48,6 +50,6 @@ class AmoebasController < ApplicationController
 
   private
     def amoeba_params
-      params.require(:amoeba).permit(:name, :talent_id)
+      params.require(:amoeba).permit(:name, :talent_id, :first_child, :second_child, :generation, :act_ids => [])
     end
 end

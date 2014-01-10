@@ -1,0 +1,5 @@
+%h1= @act.name
+%p Performing at #{@act.time.strftime("%H:%M")} on #{@act.date}.
+%p
+  Amoebas:
+  = render @act.amoebas
