@@ -2,6 +2,7 @@
 %p Performing at #{@act.time.strftime("%H:%M")} on #{@act.date}.
 %p
   Amoebas:
-  = render @act.amoebas
+  %ul
+    = render @act.amoebas
 %p= link_to 'Change Act Lineup', edit_act_path
 %p= link_to 'Back to Circus', root_path
